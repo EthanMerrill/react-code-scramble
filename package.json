@@ -11,6 +11,8 @@
     "react-dom": "^18.0.0-rc.3",
     "react-google-places-autocomplete": "^3.3.4",
     "react-scripts": "5.0.0",
+    "react-spring": "^9.4.4",
+    "recharts": "^2.1.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
