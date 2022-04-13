@@ -27,7 +27,7 @@ const Component = (props) => {
                 <h2>{weatherData.emoji}</h2>
             </div>
             </React.Suspense>
-
+            
         )
     } else {
         return (

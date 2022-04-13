@@ -46,6 +46,7 @@ const Component = (props) => {
                 selectProps={{
                     value,
                     onChange: setValue,
+                    // debounce: 400,
                 }}
                 autocompletionRequest={{
                     componentRestrictions: {
