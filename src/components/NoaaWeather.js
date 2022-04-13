@@ -43,7 +43,7 @@ const Component = (props) => {
 
     // JSX return
     return (
-
+        <React.Suspense fallback={<div>Loading...</div>}>
         <div className='chart'>
             <AreaChart width={730} height={250} data={forecastData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -59,8 +59,10 @@ const Component = (props) => {
                 <Area type="monotone" dataKey="Temp (F)" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
                 <Legend />
             </AreaChart>
+        
 
         </div>
+        </React.Suspense>
 
     )
 }
