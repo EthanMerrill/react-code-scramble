@@ -1,11 +1,11 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React, { startTransition, useEffect, useState } from "react";
 import axios from 'axios';
-import {AreaChart, linearGradient, XAxis, YAxis, CartesianGrid, Tooltip, Area, Legend} from 'recharts'
+import { AreaChart, linearGradient, XAxis, YAxis, CartesianGrid, Tooltip, Area, Legend } from 'recharts'
 
 const Component = (props) => {
     // destructure props
-    const {locationDetails} = props
+    const { locationDetails } = props
 
     // State Variables
     const [forecastData, setForecastData] = useState(null)
@@ -17,28 +17,33 @@ const Component = (props) => {
             url: `https://api.weather.gov/points/${lat},${lng}`,
             // responseType: 'stream'
         }).then(resp => {
-                console.log(resp.data);
-                axios({
-                    method: 'get',
-                    url: resp.data.properties.forecastGridData,
-                    
-                }).then(resp => {
+            console.log(resp.data);
+            axios({
+                method: 'get',
+                url: resp.data.properties.forecastGridData,
 
-                    // setForecastData(resp.data?.properties?.apparentTemperature?.values)
-                    setForecastData(resp.data?.properties?.apparentTemperature?.values.map(item => {return ({"name": item.validTime.slice(5,10), "Temp (F)":Math.round(item.value)}) }))
-                })
-            
+            }).then(resp => {
+
+                // setForecastData(resp.data?.properties?.apparentTemperature?.values)
+                setForecastData(resp.data?.properties?.apparentTemperature?.values.map(item => { return ({ "name": item.validTime.slice(5, 10), "Temp (F)": Math.round(item.value) }) }))
+            })
+
         })
     }
 
     useEffect(() => {
         if (locationDetails) {
-            getWeatherGrid(locationDetails.coords.lat, locationDetails.coords.lng)
+            startTransition(() => {
+                getWeatherGrid(locationDetails.coords.lat, locationDetails.coords.lng)
+            })
+        } else {
+            setForecastData(null)
         }
     }, [locationDetails])
 
     // JSX return
-    return(
+    return (
+
         <div className='chart'>
             <AreaChart width={730} height={250} data={forecastData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -52,10 +57,11 @@ const Component = (props) => {
                 <YAxis />
                 <Tooltip />
                 <Area type="monotone" dataKey="Temp (F)" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                <Legend/>
+                <Legend />
             </AreaChart>
 
         </div>
+
     )
 }
 
