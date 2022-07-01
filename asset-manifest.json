@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-code-scramble/static/css/main.6ae16e3c.css",
-    "main.js": "/react-code-scramble/static/js/main.3732bd79.js",
+    "main.css": "/react-code-scramble/static/css/main.04504257.css",
+    "main.js": "/react-code-scramble/static/js/main.4d6ad1ae.js",
     "static/js/505.970e30b5.chunk.js": "/react-code-scramble/static/js/505.970e30b5.chunk.js",
     "static/js/255.6307e0cc.chunk.js": "/react-code-scramble/static/js/255.6307e0cc.chunk.js",
     "index.html": "/react-code-scramble/index.html",
-    "main.6ae16e3c.css.map": "/react-code-scramble/static/css/main.6ae16e3c.css.map",
-    "main.3732bd79.js.map": "/react-code-scramble/static/js/main.3732bd79.js.map",
+    "main.04504257.css.map": "/react-code-scramble/static/css/main.04504257.css.map",
+    "main.4d6ad1ae.js.map": "/react-code-scramble/static/js/main.4d6ad1ae.js.map",
     "505.970e30b5.chunk.js.map": "/react-code-scramble/static/js/505.970e30b5.chunk.js.map",
     "255.6307e0cc.chunk.js.map": "/react-code-scramble/static/js/255.6307e0cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ae16e3c.css",
-    "static/js/main.3732bd79.js"
+    "static/css/main.04504257.css",
+    "static/js/main.4d6ad1ae.js"
   ]
 }
