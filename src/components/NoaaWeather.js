@@ -2,6 +2,10 @@
 import React, { startTransition, useEffect, useState } from "react";
 import axios from 'axios';
 import { AreaChart, linearGradient, XAxis, YAxis, CartesianGrid, Tooltip, Area, Legend } from 'recharts'
+import useSWR from 'swr'
+
+const fetcher = url => axios.get(url).then(res => res.data)
+
 
 const Component = (props) => {
     // destructure props
@@ -10,40 +14,19 @@ const Component = (props) => {
     // State Variables
     const [forecastData, setForecastData] = useState(null)
 
-
-    const getWeatherGrid = (lat, lng) => {
-        axios({
-            method: 'get',
-            url: `https://api.weather.gov/points/${lat},${lng}`,
-            // responseType: 'stream'
-        }).then(resp => {
-            console.log(resp.data);
-            axios({
-                method: 'get',
-                url: resp.data.properties.forecastGridData,
-
-            }).then(resp => {
-
-                // setForecastData(resp.data?.properties?.apparentTemperature?.values)
-                setForecastData(resp.data?.properties?.apparentTemperature?.values.map(item => { return ({ "name": item.validTime.slice(5, 10), "Temp (F)": Math.round(item.value) }) }))
-            })
-
-        })
-    }
+    const gridUrl = useSWR(locationDetails ? `https://api.weather.gov/points/${locationDetails.coords.lat},${locationDetails.coords.lng}` : null, fetcher, { suspense: true })
+    const NOAAData = useSWR(() => gridUrl?.data?.properties?.forecastGridData, fetcher, { suspense: true })
+    console.log(NOAAData?.data?.properties)
 
     useEffect(() => {
-        if (locationDetails) {
-            startTransition(() => {
-                getWeatherGrid(locationDetails.coords.lat, locationDetails.coords.lng)
-            })
-        } else {
-            setForecastData(null)
-        }
-    }, [locationDetails])
+        setForecastData(NOAAData?.data?.properties?.apparentTemperature?.values.map(item => { return ({ "name": item.validTime.slice(5, 10), "Temp (F)": Math.round(item.value) }) }))
+        console.log(NOAAData?.data?.properties)
+    }, [])
 
     // JSX return
     return (
         <React.Suspense fallback={<div>Loading...</div>}>
+            <h2 className="chart-label">10 Day Forecast</h2>
         <div className='chart'>
             <AreaChart width={730} height={250} data={forecastData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
