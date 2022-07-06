@@ -19,7 +19,7 @@ const Component = (props) => {
             <div className="results-box">
                 <h3>It feels like {weatherData.temperature.actual} °F </h3>
                 <h3>with {weatherData.details}</h3>
-                <h3>{weatherData.emoji}</h3>
+                <h1>{weatherData.emoji}</h1>
             </div>
             </React.Suspense>
             

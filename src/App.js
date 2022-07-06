@@ -24,8 +24,8 @@ function App() {
 
             <PlaceInput weatherData={weatherData} setWeatherData={setWeatherData} setLocationDetails={setLocationDetails}></PlaceInput>
           </div>
-          <React.Suspense fallback={<div>Everything is Loading...</div>}>
-          <div className='Results'>
+          <React.Suspense fallback={<div className='loading-field'><p>Everything is Loading...</p></div>}>
+          <div className='results'>
             <ErrorBoundary>
               <Results weatherData={weatherData}></Results>
               <NoaaWeather locationDetails={locationDetails}></NoaaWeather>
