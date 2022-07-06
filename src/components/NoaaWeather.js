@@ -16,12 +16,13 @@ const Component = (props) => {
 
     const gridUrl = useSWR(locationDetails ? `https://api.weather.gov/points/${locationDetails.coords.lat},${locationDetails.coords.lng}` : null, fetcher, { suspense: true })
     const NOAAData = useSWR(() => gridUrl?.data?.properties?.forecastGridData, fetcher, { suspense: true })
-    console.log(NOAAData?.data?.properties)
+    // console.log(NOAAData?.data?.properties)
+    // console.log(NOAAData?.data?.properties)
 
     useEffect(() => {
         setForecastData(NOAAData?.data?.properties?.apparentTemperature?.values.map(item => { return ({ "name": item.validTime.slice(5, 10), "Temp (F)": Math.round(item.value) }) }))
-        console.log(NOAAData?.data?.properties)
-    }, [])
+
+    }, [locationDetails])
 
     // JSX return
     return (

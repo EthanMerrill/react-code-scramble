@@ -4,8 +4,6 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 // import axios from 'axios';
 import WeatherEmoji from "weather-emoji"
-// import Counter from "./Counter";
-
 
 const Component = (props) => {
     // destructure props
@@ -22,21 +20,23 @@ const Component = (props) => {
     //useEffect desc
     useEffect(() => {
         if (value != null) {
-            weatherEmoji.getWeather(value.label, false).then(data => setWeatherData(data));
-            geocodeByAddress(value.label)
-                .then(results => getLatLng(results[0]))
-                .then(({ lat, lng }) => (
-                    value["coords"] = ({ "lat": lat, "lng": lng }),
-                    setLocationDetails(value)
+            try{
+                weatherEmoji.getWeather(value.label, false).then(data => setWeatherData(data));
+                geocodeByAddress(value.label)
+                    .then(results => getLatLng(results[0]))
+                    .then(({ lat, lng }) => (
+                        value["coords"] = ({ "lat": lat, "lng": lng }),
+                        setLocationDetails(value)
 
-                )
-                )
-
+                    )
+                    )
+            } catch {
+                setWeatherData(null);
+                setLocationDetails('cannot find weather for that location')
+            }
         } else {
             setWeatherData(null);
         }
-
-
     }, [value])
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const Component = (props) => {
                 }}
                 autocompletionRequest={{
                     componentRestrictions: {
-                        country: ['us'],
+                        country: ['US'],
                     }
                 }}
             />

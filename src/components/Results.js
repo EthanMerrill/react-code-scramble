@@ -12,19 +12,14 @@ const Component = (props) => {
     // const counterProps = useSpring({ val: numb, from: { val: 0 } });
     //Use Effects
     //useEffect desc
-    useEffect(() => {
-        console.log(weatherData)
 
-
-    }, [weatherData])
-    // JSX return
     if (weatherData !== null) {
         return (
             <React.Suspense fallback={<div>Loading...</div>}>
             <div className="results-box">
-                <h2>It feels like {weatherData.temperature.actual} °F </h2>
-                <h2>with {weatherData.details}</h2>
-                <h2>{weatherData.emoji}</h2>
+                <h3>It feels like {weatherData.temperature.actual} °F </h3>
+                <h3>with {weatherData.details}</h3>
+                <h3>{weatherData.emoji}</h3>
             </div>
             </React.Suspense>
             

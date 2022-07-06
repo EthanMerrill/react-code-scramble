@@ -3,8 +3,11 @@ import './style/style.scss'
 import PlaceInput from './components/PlaceInput.js';
 import NoaaWeather from './components/NoaaWeather.js';
 import React, { useState } from "react";
+import ErrorBoundary from './components/ErrorBoundary.js';
+
+
 const Results = React.lazy(() => import('./components/Results.js'));
-// const Comments = lazy(() => import('./Comments.js'));
+
 function App() {
 
   // State Variables
@@ -14,9 +17,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <head className="App-head">
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoTDmp_SD9zRAj1ddmuXlEoTrngHlcWe8&libraries=places"></script>
-      </head> */}
       <div className='centering-container'>
         <div className='flex-container'>
           <div className="description">
@@ -24,12 +24,12 @@ function App() {
 
             <PlaceInput weatherData={weatherData} setWeatherData={setWeatherData} setLocationDetails={setLocationDetails}></PlaceInput>
           </div>
-          <React.Suspense fallback={<div>Loading...</div>}>
+          <React.Suspense fallback={<div>Everything is Loading...</div>}>
           <div className='Results'>
-            
+            <ErrorBoundary>
               <Results weatherData={weatherData}></Results>
               <NoaaWeather locationDetails={locationDetails}></NoaaWeather>
-            
+            </ErrorBoundary>
           </div>
           </React.Suspense>
         </div>
