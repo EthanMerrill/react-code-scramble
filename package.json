@@ -1,6 +1,6 @@
 {
   "name": "spring-scramble",
-  "homepage": "https://ethanmerrill.github.io/react-code-scramble/spring-scramble",
+  "homepage": "https://ethanmerrill.github.io/react-code-scramble",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
