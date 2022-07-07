@@ -28,8 +28,9 @@ function App() {
           <div className='results'>
             <ErrorBoundary>
               <Results weatherData={weatherData}></Results>
-              <NoaaWeather locationDetails={locationDetails}></NoaaWeather>
             </ErrorBoundary>
+              <NoaaWeather locationDetails={locationDetails}></NoaaWeather>
+            
           </div>
           </React.Suspense>
         </div>

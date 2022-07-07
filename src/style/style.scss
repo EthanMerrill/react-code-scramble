@@ -30,6 +30,7 @@ h1,h2,h3{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     .input-container{
         width: 300px;
     }
@@ -44,6 +45,8 @@ h1,h2,h3{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .css-2b097c-container{
         width: 250px;
@@ -63,6 +66,7 @@ h1,h2,h3{
     margin:10px;
     height: 250px;
     max-width:730px;
+    margin-left: 50px;
 }
 
 /* LOADING CSS */
