@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-code-scramble/spring-scramble/static/css/main.76b42693.css",
-    "main.js": "/react-code-scramble/spring-scramble/static/js/main.bf2a79d7.js",
-    "static/js/505.20fe3a57.chunk.js": "/react-code-scramble/spring-scramble/static/js/505.20fe3a57.chunk.js",
-    "static/js/948.31a1ec16.chunk.js": "/react-code-scramble/spring-scramble/static/js/948.31a1ec16.chunk.js",
-    "index.html": "/react-code-scramble/spring-scramble/index.html",
-    "main.76b42693.css.map": "/react-code-scramble/spring-scramble/static/css/main.76b42693.css.map",
-    "main.bf2a79d7.js.map": "/react-code-scramble/spring-scramble/static/js/main.bf2a79d7.js.map",
-    "505.20fe3a57.chunk.js.map": "/react-code-scramble/spring-scramble/static/js/505.20fe3a57.chunk.js.map",
-    "948.31a1ec16.chunk.js.map": "/react-code-scramble/spring-scramble/static/js/948.31a1ec16.chunk.js.map"
+    "main.css": "/react-code-scramble/static/css/main.76b42693.css",
+    "main.js": "/react-code-scramble/static/js/main.2d219e5a.js",
+    "static/js/505.20fe3a57.chunk.js": "/react-code-scramble/static/js/505.20fe3a57.chunk.js",
+    "static/js/948.31a1ec16.chunk.js": "/react-code-scramble/static/js/948.31a1ec16.chunk.js",
+    "index.html": "/react-code-scramble/index.html",
+    "main.76b42693.css.map": "/react-code-scramble/static/css/main.76b42693.css.map",
+    "main.2d219e5a.js.map": "/react-code-scramble/static/js/main.2d219e5a.js.map",
+    "505.20fe3a57.chunk.js.map": "/react-code-scramble/static/js/505.20fe3a57.chunk.js.map",
+    "948.31a1ec16.chunk.js.map": "/react-code-scramble/static/js/948.31a1ec16.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76b42693.css",
-    "static/js/main.bf2a79d7.js"
+    "static/js/main.2d219e5a.js"
   ]
 }
